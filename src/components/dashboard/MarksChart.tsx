@@ -32,19 +32,19 @@ export function MarksChart() {
                 position: 'right' as const,
                 labels: {
                     color: '#cbd5e1',
-                    font: { family: "'Hind Siliguri', sans-serif", size: 11 },
-                    padding: 10,
+                    font: { family: "'Hind Siliguri', sans-serif", size: 10 },
+                    padding: 6,
                     usePointStyle: true,
                     pointStyle: 'circle',
-                    boxWidth: 8,
+                    boxWidth: 6,
                 },
             },
         },
-        cutout: '65%',
+        cutout: '60%',
     };
 
     return (
-        <div className="h-40 w-full max-w-sm mx-auto">
+        <div className="h-28 w-full max-w-xs mx-auto">
             <Doughnut data={data} options={options} />
         </div>
     );

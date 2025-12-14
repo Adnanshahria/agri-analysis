@@ -27,13 +27,13 @@ interface TrendChartProps {
 }
 
 export function TrendChart({ data, colorTheme = '#3b82f6' }: TrendChartProps) {
-    // Process data: Top 15 chapters by prediction to keep chart readable
+    // Process data: Top 10 chapters by prediction to keep chart readable on laptop
     const processedData = useMemo(() => {
-        const sorted = [...data].sort((a, b) => b.pred26 - a.pred26).slice(0, 15);
+        const sorted = [...data].sort((a, b) => b.pred26 - a.pred26).slice(0, 10);
         return {
             labels: sorted.map(d => {
-                // Clean name: remove "01. " and " (Out)"
-                return d.name.replace(/^\d+\.\s+/, '').replace(/\s+\(Out\)$/i, '').substring(0, 15);
+                // Clean name: remove "01. " and " (Out)" and truncate
+                return d.name.replace(/^\d+\.\s+/, '').replace(/\s+\(Out\)$/i, '').substring(0, 12);
             }),
             datasets: [
                 {
@@ -41,14 +41,12 @@ export function TrendChart({ data, colorTheme = '#3b82f6' }: TrendChartProps) {
                     data: sorted.map(d => d.c22 || 0),
                     backgroundColor: '#334155',
                     borderRadius: 4,
-                    hidden: true, // Hide old data by default to reduce clutter
                 },
                 {
                     label: '23-24',
                     data: sorted.map(d => d.c23 || 0),
                     backgroundColor: '#475569',
                     borderRadius: 4,
-                    hidden: true,
                 },
                 {
                     label: '24-25',
@@ -100,7 +98,7 @@ export function TrendChart({ data, colorTheme = '#3b82f6' }: TrendChartProps) {
     };
 
     return (
-        <div className={cn("h-[350px] w-full")}>
+        <div className={cn("h-[280px] w-full")}>
             <Bar data={processedData} options={options} />
         </div>
     );

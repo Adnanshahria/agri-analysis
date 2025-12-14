@@ -98,25 +98,25 @@ export default function Analytics() {
     };
 
     return (
-        <div className="space-y-8 animate-fade-in-up">
-            <h1 className="text-3xl font-bold text-white">অ্যানালিটিক্স</h1>
+        <div className="space-y-4 animate-fade-in-up">
+            <h1 className="text-2xl font-bold text-white">অ্যানালিটিক্স</h1>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Total Marks - Expandable */}
-                <div className="glass-panel rounded-2xl overflow-hidden">
+                <div className="glass-panel rounded-xl overflow-hidden">
                     <button
                         onClick={() => setIsExpanded(!isExpanded)}
-                        className="w-full p-6 flex items-center gap-4 hover:bg-white/5 transition-colors"
+                        className="w-full p-4 flex items-center gap-3 hover:bg-white/5 transition-colors"
                     >
-                        <div className="p-3 bg-blue-500/10 rounded-xl text-blue-400">
-                            <Target size={32} />
+                        <div className="p-2 bg-blue-500/10 rounded-lg text-blue-400">
+                            <Target size={24} />
                         </div>
                         <div className="text-left flex-1">
-                            <p className="text-sm text-slate-400">Total Marks</p>
-                            <p className="text-2xl font-bold text-white">100</p>
+                            <p className="text-xs text-slate-400">Total Marks</p>
+                            <p className="text-xl font-bold text-white">100</p>
                         </div>
                         <div className="text-slate-400">
-                            {isExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                            {isExpanded ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
                         </div>
                     </button>
 
@@ -126,29 +126,29 @@ export default function Analytics() {
                                 initial={{ height: 0, opacity: 0 }}
                                 animate={{ height: 'auto', opacity: 1 }}
                                 exit={{ height: 0, opacity: 0 }}
-                                transition={{ duration: 0.2 }}
+                                transition={{ duration: 0.15 }}
                                 className="overflow-hidden"
                             >
-                                <div className="px-6 pb-6 pt-2 border-t border-white/5 space-y-3">
-                                    <p className="text-xs text-slate-500 mb-3">মার্কস ডিস্ট্রিবিউশন</p>
+                                <div className="px-4 pb-4 pt-2 border-t border-white/5 space-y-2">
+                                    <p className="text-[10px] text-slate-500 mb-2">মার্কস ডিস্ট্রিবিউশন</p>
                                     {subjects.map((subject) => (
-                                        <div key={subject.key} className="flex items-center justify-between">
+                                        <div key={subject.key} className="flex items-center justify-between text-xs">
                                             <div className="flex items-center gap-2">
-                                                <div className={cn("w-2 h-2 rounded-full", subject.bg.replace('/10', ''))}
+                                                <div className={cn("w-1.5 h-1.5 rounded-full")}
                                                     style={{
                                                         backgroundColor: subject.color.includes('emerald') ? '#10b981' :
                                                             subject.color.includes('amber') ? '#f59e0b' :
                                                                 subject.color.includes('blue') ? '#3b82f6' :
                                                                     subject.color.includes('red') ? '#ef4444' : '#a855f7'
                                                     }} />
-                                                <span className={cn("text-sm", subject.color)}>{subject.name}</span>
+                                                <span className={cn("", subject.color)}>{subject.name}</span>
                                             </div>
-                                            <span className="text-sm font-mono font-bold text-white">{subject.max}</span>
+                                            <span className="font-mono font-bold text-white">{subject.max}</span>
                                         </div>
                                     ))}
-                                    <div className="pt-2 border-t border-white/10 flex justify-between">
-                                        <span className="text-sm font-bold text-slate-300">মোট</span>
-                                        <span className="text-sm font-mono font-bold text-yellow-400">100</span>
+                                    <div className="pt-2 border-t border-white/10 flex justify-between text-xs">
+                                        <span className="font-bold text-slate-300">মোট</span>
+                                        <span className="font-mono font-bold text-yellow-400">100</span>
                                     </div>
                                 </div>
                             </motion.div>
@@ -159,35 +159,35 @@ export default function Analytics() {
                 {/* High Priority Topics - clickable */}
                 <Link
                     to="/#hot-topics"
-                    className="glass-panel p-6 rounded-2xl flex items-center gap-4 hover:bg-white/5 transition-colors group cursor-pointer"
+                    className="glass-panel p-4 rounded-xl flex items-center gap-3 hover:bg-white/5 transition-colors group cursor-pointer"
                 >
-                    <div className="p-3 bg-yellow-500/10 rounded-xl text-yellow-400 group-hover:scale-110 transition-transform">
-                        <Trophy size={32} />
+                    <div className="p-2 bg-yellow-500/10 rounded-lg text-yellow-400 group-hover:scale-110 transition-transform">
+                        <Trophy size={24} />
                     </div>
                     <div>
-                        <p className="text-sm text-slate-400 group-hover:text-yellow-400 transition-colors">High Priority Topics</p>
-                        <p className="text-2xl font-bold text-white">~45</p>
+                        <p className="text-xs text-slate-400 group-hover:text-yellow-400 transition-colors">High Priority Topics</p>
+                        <p className="text-xl font-bold text-white">~45</p>
                     </div>
                     <span className="ml-auto text-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity text-xs font-medium">View →</span>
                 </Link>
             </div>
 
             {/* Marks Calculator */}
-            <div className="glass-panel p-6 rounded-2xl">
-                <h3 className="font-bold text-slate-200 mb-6 flex items-center gap-2">
-                    <Calculator size={20} className="text-blue-400" />
+            <div className="glass-panel p-4 rounded-xl">
+                <h3 className="font-bold text-slate-200 mb-4 text-sm flex items-center gap-2">
+                    <Calculator size={16} className="text-blue-400" />
                     মার্কস ক্যালকুলেটর
                 </h3>
 
-                <div className="space-y-4">
+                <div className="space-y-2">
                     {subjects.map((subject) => (
-                        <div key={subject.key} className="flex items-center gap-4">
-                            <div className={cn("w-10 h-10 rounded-lg flex items-center justify-center shrink-0", subject.bg)}>
-                                <span className={cn("text-lg font-bold", subject.color)}>{subject.name.charAt(0)}</span>
+                        <div key={subject.key} className="flex items-center gap-3">
+                            <div className={cn("w-8 h-8 rounded-md flex items-center justify-center shrink-0", subject.bg)}>
+                                <span className={cn("text-sm font-bold", subject.color)}>{subject.name.charAt(0)}</span>
                             </div>
                             <div className="flex-1">
-                                <label className="text-sm text-slate-300 font-medium">{subject.name}</label>
-                                <p className="text-[10px] text-slate-500">সর্বোচ্চ: {subject.max}</p>
+                                <label className="text-xs text-slate-300 font-medium">{subject.name}</label>
+                                <p className="text-[9px] text-slate-500">সর্বোচ্চ: {subject.max}</p>
                             </div>
                             <input
                                 type="number"
@@ -196,18 +196,18 @@ export default function Analytics() {
                                 value={marks[subject.key] || ''}
                                 onChange={(e) => handleMarkChange(subject.key, e.target.value)}
                                 placeholder="0"
-                                className="w-20 px-3 py-2 bg-neutral-800 border border-white/10 rounded-lg text-white text-center font-mono font-bold focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                className="w-16 px-2 py-1.5 bg-neutral-800 border border-white/10 rounded-md text-white text-center text-sm font-mono font-bold focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-transparent"
                             />
                         </div>
                     ))}
                 </div>
 
                 {/* Total and Result */}
-                <div className="mt-6 pt-6 border-t border-white/10">
-                    <div className="flex items-center justify-between mb-4">
-                        <span className="text-lg font-bold text-slate-200">মোট নম্বর:</span>
+                <div className="mt-4 pt-4 border-t border-white/10">
+                    <div className="flex items-center justify-between mb-3">
+                        <span className="text-sm font-bold text-slate-200">মোট নম্বর:</span>
                         <span className={cn(
-                            "text-3xl font-bold font-mono tabular-nums",
+                            "text-2xl font-bold font-mono tabular-nums",
                             totalMarks >= 60 ? "text-green-400" : totalMarks >= 50 ? "text-orange-400" : "text-slate-400"
                         )}>
                             {totalMarks} / 100
@@ -215,7 +215,7 @@ export default function Analytics() {
                     </div>
 
                     {/* Progress Bar */}
-                    <div className="h-3 bg-neutral-800 rounded-full overflow-hidden mb-4">
+                    <div className="h-2 bg-neutral-800 rounded-full overflow-hidden mb-3">
                         <div
                             className={cn(
                                 "h-full rounded-full transition-all duration-500",
@@ -232,16 +232,16 @@ export default function Analytics() {
 
                     {/* Result Message */}
                     {totalMarks >= 50 ? (
-                        <div className={cn("p-4 border rounded-xl flex items-center gap-4", resultConfig.bgColor, resultConfig.borderColor)}>
-                            {resultConfig.icon}
+                        <div className={cn("p-3 border rounded-lg flex items-center gap-3", resultConfig.bgColor, resultConfig.borderColor)}>
+                            <div className="shrink-0">{resultConfig.icon}</div>
                             <div>
-                                <h4 className={cn("font-bold text-lg", resultConfig.textColor)}>{resultConfig.title}</h4>
-                                <p className={cn("text-sm opacity-80", resultConfig.textColor)}>{resultConfig.message}</p>
+                                <h4 className={cn("font-bold text-sm", resultConfig.textColor)}>{resultConfig.title}</h4>
+                                <p className={cn("text-xs opacity-80", resultConfig.textColor)}>{resultConfig.message}</p>
                             </div>
                         </div>
                     ) : (
-                        <div className="p-4 bg-slate-800/50 border border-white/5 rounded-xl">
-                            <p className="text-slate-400 text-sm text-center">
+                        <div className="p-3 bg-slate-800/50 border border-white/5 rounded-lg">
+                            <p className="text-slate-400 text-xs text-center">
                                 কাটমার্ক <span className="text-yellow-400 font-bold">50</span> অতিক্রম করতে আরো <span className="text-white font-bold">{50 - totalMarks}</span> মার্কস দরকার।
                             </p>
                         </div>

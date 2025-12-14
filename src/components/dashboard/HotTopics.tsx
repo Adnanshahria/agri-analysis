@@ -51,53 +51,55 @@ export function HotTopics() {
     };
 
     return (
-        <div className="space-y-4">
+        <div>
             {/* Summary */}
-            <div className="flex items-center justify-between p-3 rounded-xl bg-yellow-500/10 border border-yellow-500/20">
+            <div className="flex items-center justify-between p-2 rounded-lg bg-yellow-500/10 border border-yellow-500/20 mb-3">
                 <div className="flex items-center gap-2">
-                    <Star size={16} className="text-yellow-400 fill-yellow-400" />
-                    <span className="text-sm font-bold text-yellow-400">টপ ৩০ প্রেডিকশন</span>
+                    <Star size={14} className="text-yellow-400 fill-yellow-400" />
+                    <span className="text-xs font-bold text-yellow-400">টপ ৩০ প্রেডিকশন</span>
                 </div>
                 <div className="text-right">
-                    <span className="text-lg font-bold text-yellow-400">~{totalPredictedQuestions}</span>
-                    <span className="text-xs text-yellow-400/70 ml-1">প্রশ্ন</span>
+                    <span className="text-sm font-bold text-yellow-400">~{totalPredictedQuestions}</span>
+                    <span className="text-[10px] text-yellow-400/70 ml-1">প্রশ্ন</span>
                 </div>
-            </div>
+            </div >
 
-            {/* Topics List */}
-            <div className="space-y-2 max-h-[500px] md:max-h-[600px] overflow-y-auto custom-scroll pr-1">
-                {hotChapters.map((chapter, index) => {
-                    const style = getSubjectColor(chapter.subject);
-                    return (
-                        <Link
-                            key={`${chapter.subject}-${index}`}
-                            to={`/${chapter.subject}`}
-                            className="flex items-center justify-between p-2.5 md:p-3 rounded-xl bg-slate-800/40 border border-white/5 hover:bg-slate-800/80 transition-all duration-200 group"
-                        >
-                            <div className="flex items-center gap-3 overflow-hidden">
-                                <div className="w-6 h-6 rounded-full bg-slate-700/50 flex items-center justify-center shrink-0 text-[10px] font-bold text-slate-400">
-                                    {index + 1}
-                                </div>
-                                <div className={cn("w-8 h-8 rounded-lg flex items-center justify-center shrink-0 border", style)}>
-                                    <TrendingUp size={14} />
-                                </div>
-                                <div className="truncate">
-                                    <div className="text-xs md:text-sm font-semibold text-slate-200 truncate group-hover:text-white transition-colors">
-                                        {chapter.name}
+            {/* Topics Grid - 3 columns */}
+            < div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 max-h-[400px] overflow-y-auto custom-scroll pr-1" >
+                {
+                    hotChapters.map((chapter, index) => {
+                        const style = getSubjectColor(chapter.subject);
+                        return (
+                            <Link
+                                key={`${chapter.subject}-${index}`}
+                                to={`/${chapter.subject}`}
+                                className="flex items-center justify-between p-2 rounded-lg bg-slate-800/40 border border-white/5 hover:bg-slate-800/80 transition-all duration-200 group"
+                            >
+                                <div className="flex items-center gap-2 overflow-hidden flex-1">
+                                    <div className="w-5 h-5 rounded-full bg-slate-700/50 flex items-center justify-center shrink-0 text-[9px] font-bold text-slate-400">
+                                        {index + 1}
                                     </div>
-                                    <div className={cn("text-[9px] md:text-[10px] uppercase tracking-widest font-bold mt-0.5", style.split(' ')[0])}>
-                                        {getSubjectName(chapter.subject)}
+                                    <div className={cn("w-6 h-6 rounded flex items-center justify-center shrink-0 border", style)}>
+                                        <TrendingUp size={12} />
+                                    </div>
+                                    <div className="truncate flex-1 min-w-0">
+                                        <div className="text-[11px] font-semibold text-slate-200 truncate group-hover:text-white transition-colors">
+                                            {chapter.name.replace(/^\d+\.\s*/, '')}
+                                        </div>
+                                        <div className={cn("text-[8px] uppercase tracking-widest font-bold", style.split(' ')[0])}>
+                                            {getSubjectName(chapter.subject)}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div className="text-right shrink-0 flex items-center gap-1">
-                                <Star size={10} className="text-yellow-400 fill-yellow-400" />
-                                <span className="text-base font-bold text-yellow-400 tabular-nums">{chapter.pred26}</span>
-                            </div>
-                        </Link>
-                    )
-                })}
+                                <div className="shrink-0 flex items-center gap-0.5 ml-1">
+                                    <Star size={8} className="text-yellow-400 fill-yellow-400" />
+                                    <span className="text-xs font-bold text-yellow-400 tabular-nums">{chapter.pred26}</span>
+                                </div>
+                            </Link>
+                        )
+                    })
+                }
             </div>
         </div>
     );

@@ -15,8 +15,8 @@ export function Layout() {
             <Header />
 
             {/* Main Content */}
-            <main className="flex-1 md:ml-72 pt-20 md:pt-8 pb-24 md:pb-8 px-4 md:px-8 lg:px-12 xl:px-16">
-                <div className="max-w-6xl mx-auto">
+            <main className="flex-1 md:ml-56 pt-20 md:pt-4 pb-24 md:pb-6 px-4 md:px-5 overflow-x-hidden">
+                <div className="max-w-5xl mx-auto">
                     <Outlet />
                 </div>
             </main>
