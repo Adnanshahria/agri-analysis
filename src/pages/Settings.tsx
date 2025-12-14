@@ -2,13 +2,13 @@ import { Moon, Bell, HelpCircle, Info, Send, User } from 'lucide-react';
 
 export default function Settings() {
     return (
-        <div className="space-y-6 animate-fade-in-up">
+        <div className="space-y-6 animate-fade-in-up max-w-2xl">
             <h1 className="text-3xl font-bold text-white">সেটিংস</h1>
 
-            <div className="glass-panel rounded-2xl overflow-hidden divide-y divide-white/5">
-                <div className="p-4 flex items-center justify-between hover:bg-white/5 cursor-pointer transition-colors">
+            <div className="glass-panel rounded-2xl overflow-hidden divide-y divide-white/5 hover-lift">
+                <div className="p-4 md:p-5 flex items-center justify-between hover:bg-white/5 cursor-pointer transition-colors">
                     <div className="flex items-center gap-4">
-                        <div className="p-2 bg-slate-800 rounded-lg text-slate-400">
+                        <div className="p-2.5 bg-slate-800 rounded-lg text-slate-400">
                             <Moon size={20} />
                         </div>
                         <div>
@@ -21,9 +21,9 @@ export default function Settings() {
                     </div>
                 </div>
 
-                <div className="p-4 flex items-center justify-between hover:bg-white/5 cursor-pointer transition-colors">
+                <div className="p-4 md:p-5 flex items-center justify-between hover:bg-white/5 cursor-pointer transition-colors">
                     <div className="flex items-center gap-4">
-                        <div className="p-2 bg-slate-800 rounded-lg text-slate-400">
+                        <div className="p-2.5 bg-slate-800 rounded-lg text-slate-400">
                             <Bell size={20} />
                         </div>
                         <div>
@@ -37,15 +37,15 @@ export default function Settings() {
                 </div>
             </div>
 
-            <div className="glass-panel rounded-2xl overflow-hidden divide-y divide-white/5">
-                <div className="p-4 flex items-center gap-4 hover:bg-white/5 cursor-pointer transition-colors">
-                    <div className="p-2 bg-slate-800 rounded-lg text-slate-400">
+            <div className="glass-panel rounded-2xl overflow-hidden divide-y divide-white/5 hover-lift">
+                <div className="p-4 md:p-5 flex items-center gap-4 hover:bg-white/5 cursor-pointer transition-colors">
+                    <div className="p-2.5 bg-slate-800 rounded-lg text-slate-400">
                         <HelpCircle size={20} />
                     </div>
                     <h3 className="text-sm font-medium text-slate-200">হেল্প সেন্টার</h3>
                 </div>
-                <div className="p-4 flex items-center gap-4 hover:bg-white/5 cursor-pointer transition-colors">
-                    <div className="p-2 bg-slate-800 rounded-lg text-slate-400">
+                <div className="p-4 md:p-5 flex items-center gap-4 hover:bg-white/5 cursor-pointer transition-colors">
+                    <div className="p-2.5 bg-slate-800 rounded-lg text-slate-400">
                         <Info size={20} />
                     </div>
                     <h3 className="text-sm font-medium text-slate-200">অ্যাপ সম্পর্কে</h3>
@@ -53,10 +53,10 @@ export default function Settings() {
             </div>
 
             {/* Developer Info Section */}
-            <div className="glass-panel rounded-2xl overflow-hidden">
-                <div className="p-4 border-b border-white/5">
+            <div className="glass-panel rounded-2xl overflow-hidden hover-lift">
+                <div className="p-4 md:p-5 border-b border-white/5">
                     <div className="flex items-center gap-3">
-                        <div className="p-2 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-lg text-blue-400">
+                        <div className="p-2.5 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-lg text-blue-400">
                             <User size={20} />
                         </div>
                         <div>
@@ -71,9 +71,9 @@ export default function Settings() {
                         href="https://t.me/adnanshahria"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-4 flex items-center gap-4 hover:bg-white/5 transition-colors"
+                        className="p-4 md:p-5 flex items-center gap-4 hover:bg-white/5 transition-colors"
                     >
-                        <div className="p-2 bg-blue-500/10 rounded-lg text-blue-400">
+                        <div className="p-2.5 bg-blue-500/10 rounded-lg text-blue-400">
                             <Send size={20} />
                         </div>
                         <div className="flex-1">
